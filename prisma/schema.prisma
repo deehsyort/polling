@@ -12,7 +12,7 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model pollQuestion {
+model PollQuestion {
   id        String    @id @default(cuid())
   createdAt DateTime  @default(now())
   endsAt    DateTime?
