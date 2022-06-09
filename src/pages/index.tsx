@@ -29,7 +29,7 @@ const QuestionCreator: React.FC = () => {
 };
 
 export default function Home() {
-  const { data, isLoading } = trpc.useQuery(["questions.get-all"]);
+  const { data, isLoading } = trpc.useQuery(["questions.get-all-my-questions"]);
   if (isLoading || !data) return <div>Loading...</div>;
   return (
     <div className="p-8">
