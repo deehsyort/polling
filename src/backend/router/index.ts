@@ -3,9 +3,9 @@ import { z } from "zod";
 import { prisma } from "../../db/client"
 import { questionRouter } from "./questions";
 import superjson from 'superjson';
+import { createRouter } from "./context"
 
-export const appRouter = trpc
-    .router()
+export const appRouter = createRouter()
     .transformer(superjson)
     .merge("questions.", questionRouter)
 
