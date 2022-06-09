@@ -1,6 +1,7 @@
 import * as trpc from "@trpc/server";
 import * as trpcNext from '@trpc/server/adapters/next';
 import { z } from "zod";
+import { prisma } from "../../../db/client"
 
 export const appRouter = trpc.router().query("hello", {
     input: z
@@ -13,6 +14,10 @@ export const appRouter = trpc.router().query("hello", {
             greeting: `hello ${input?.text ?? "world"}`
         };
     },
+}).query('getAllQuestions', {
+    async resolve() {
+        return await prisma?.pollQuestion.findMany();
+    }
 });
 
 export type AppRouter = typeof appRouter;
