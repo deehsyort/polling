@@ -32,7 +32,7 @@ export default function Home() {
   const { data, isLoading } = trpc.useQuery(["questions.get-all"]);
   if (isLoading || !data) return <div>Loading...</div>;
   return (
-    <div className="p-2">
+    <div className="p-8">
       <div className="flex flex-col">
         <div className="text-2xl font-bold mb-2">Questions</div>
         <div className="mb-2">
